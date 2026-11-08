@@ -338,10 +338,10 @@ const solves = [
 
 // ---------- roster (names and solve counts only) ----------
 const roster = [
-  {name:'Danny123', note:'Daniel Mumtaz', solves:26},
-  {name:'Smallie', note:'teammate', solves:22},
-  {name:'MichaelMeade', note:'teammate', solves:2},
-  {name:'Skynet_1991', note:'teammate', solves:0}
+  {name:'Danny123', note:'', solves:26},
+  {name:'Smallie', note:'', solves:22},
+  {name:'MichaelMeade', note:'', solves:2},
+  {name:'Skynet_1991', note:'', solves:0}
 ];
 const rosterEl = document.getElementById('roster');
 roster.forEach(r => {
@@ -349,7 +349,7 @@ roster.forEach(r => {
   card.className = 'agent';
   card.dataset.solver = r.name;
   card.innerHTML = `<div class="name">&gt; ${r.name}</div>
-    <div class="meta">${r.note} · ${r.solves} solves</div>`;
+    <div class="meta">${r.note ? r.note + ' · ' : ''}${r.solves} solves</div>`;
   card.addEventListener('click', () => setSolver(card.dataset.solver === activeSolver ? null : card.dataset.solver));
   rosterEl.appendChild(card);
 });
